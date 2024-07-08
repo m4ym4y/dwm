@@ -6,15 +6,15 @@ static const unsigned int gappx     = 16;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Monego:size=12" };
+static const char *fonts[]          = { "Monego:size=12", "Noto Emoji:size=13" };
 static const char dmenufont[]       = "Monego:size=12";
-static const char col_gray1[]       = "#42395d";
-static const char col_gray2[]       = "#75507b";
-static const char col_gray3[]       = "#c2ffdf";
-static const char col_gray4[]       = "#f8f8f0";
+static const char col_gray1[]       = "#fcfcfc";
+static const char col_gray2[]       = "#f0bebe";
+static const char col_gray3[]       = "#828c99";
+static const char col_gray4[]       = "#828c99";
 static const char col_cyan[]        = "#c2ffdf";
-static const char col_red[]         = "#ffb8d1";
-static const char col_purple[]      = "#8077a8";
+static const char col_red[]         = "#f0bebe";
+static const char col_purple[]      = "#fcfcfc";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_purple },
@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "www", "chat", "prog", "game", "misc", "etc", "other" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -32,6 +32,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "discord",  NULL,				NULL,				1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
@@ -62,11 +63,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *lockcmd[] = { "/home/maya/bin/blurlock.sh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
