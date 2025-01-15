@@ -9,16 +9,16 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Monego:size=12", "Noto Emoji:size=13" };
 static const char dmenufont[]       = "Monego:size=12";
 static const char col_gray1[]       = "#fcfcfc";
-static const char col_gray2[]       = "#f0bebe";
+static const char col_gray2[]       = "#eba54d";
 static const char col_gray3[]       = "#828c99";
 static const char col_gray4[]       = "#828c99";
 static const char col_cyan[]        = "#c2ffdf";
-static const char col_red[]         = "#f0bebe";
+static const char col_red[]         = "#e7666a";
 static const char col_purple[]      = "#fcfcfc";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_purple },
-	[SchemeSel]  = { col_gray4, col_gray2,  col_red  },
+	[SchemeSel]  = { col_gray1, col_red,  col_red  },
 };
 
 /* tagging */
