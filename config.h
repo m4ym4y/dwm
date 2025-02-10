@@ -40,6 +40,7 @@ static const Rule rules[] = {
   /* class      instance    title       tags mask     isfloating   monitor */
   { "discord",  NULL,        NULL,       1 << 1,       0,           -1 },
   { "Godot",    NULL,        NULL,       1 << 2,       0,           -1 },
+  { "Museum of All Things",NULL,NULL,    1 << 2,       1,           -1 },
   { "Gimp",     NULL,        NULL,       1 << 3,       1,           -1 },
   { "Inkscape", NULL,        NULL,       1 << 3,       0,           -1 },
   { "Blender",  NULL,        NULL,       1 << 3,       0,           -1 },
